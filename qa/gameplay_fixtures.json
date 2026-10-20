@@ -1,0 +1,177 @@
+{
+ "oracle": "python-chess",
+ "fixtures": [
+  {
+   "name": "mate_in_1_white",
+   "fen": "4k3/3R1RK1/8/8/8/8/8/8 w - - 0 1",
+   "turn": "w",
+   "depth": 2,
+   "expect": "mate",
+   "mate_moves": [
+    "f7e7"
+   ],
+   "moves": {
+    "g7h8": true,
+    "g7g8": true,
+    "g7h7": true,
+    "g7h6": true,
+    "g7g6": true,
+    "g7f6": true,
+    "f7f8": true,
+    "f7e7": true,
+    "f7f6": true,
+    "f7f5": true,
+    "f7f4": true,
+    "f7f3": true,
+    "f7f2": true,
+    "f7f1": true,
+    "d7d8": true,
+    "d7e7": true,
+    "d7c7": true,
+    "d7b7": true,
+    "d7a7": true,
+    "d7d6": true,
+    "d7d5": true,
+    "d7d4": true,
+    "d7d3": true,
+    "d7d2": true,
+    "d7d1": true
+   }
+  },
+  {
+   "name": "mate_in_1_black",
+   "fen": "8/8/8/8/8/8/3r1rk1/4K3 b - - 0 1",
+   "turn": "b",
+   "depth": 2,
+   "expect": "mate",
+   "mate_moves": [
+    "f2e2"
+   ],
+   "moves": {
+    "g2h3": true,
+    "g2g3": true,
+    "g2f3": true,
+    "g2h2": true,
+    "g2h1": true,
+    "g2g1": true,
+    "f2f8": true,
+    "f2f7": true,
+    "f2f6": true,
+    "f2f5": true,
+    "f2f4": true,
+    "f2f3": true,
+    "f2e2": true,
+    "f2f1": true,
+    "d2d8": true,
+    "d2d7": true,
+    "d2d6": true,
+    "d2d5": true,
+    "d2d4": true,
+    "d2d3": true,
+    "d2e2": true,
+    "d2c2": true,
+    "d2b2": true,
+    "d2a2": true,
+    "d2d1": true
+   }
+  },
+  {
+   "name": "grab_free_black_queen",
+   "fen": "8/8/3N4/8/4q3/8/1k6/6K1 w - - 0 1",
+   "turn": "w",
+   "depth": 3,
+   "expect": "capture_free_piece",
+   "target_captures": [
+    "d6e4"
+   ],
+   "moves": {
+    "d6e8": true,
+    "d6c8": true,
+    "d6f7": true,
+    "d6b7": true,
+    "d6f5": true,
+    "d6b5": true,
+    "d6e4": true,
+    "d6c4": true,
+    "g1h2": true,
+    "g1f2": true,
+    "g1f1": true
+   }
+  },
+  {
+   "name": "grab_free_white_queen_black",
+   "fen": "6k1/1K6/8/4Q3/8/3n4/8/8 b - - 0 1",
+   "turn": "b",
+   "depth": 3,
+   "expect": "capture_free_piece",
+   "target_captures": [
+    "d3e5"
+   ],
+   "moves": {
+    "g8f8": true,
+    "g8h7": true,
+    "g8f7": true,
+    "d3e5": true,
+    "d3c5": true,
+    "d3f4": true,
+    "d3b4": true,
+    "d3f2": true,
+    "d3b2": true,
+    "d3e1": true,
+    "d3c1": true
+   }
+  },
+  {
+   "name": "avoid_forced_mate_white",
+   "fen": "8/K5R1/2k5/8/8/6r1/8/8 w - - 0 1",
+   "turn": "w",
+   "depth": 3,
+   "expect": "avoid_mate",
+   "losing_moves": [
+    "a7a6"
+   ],
+   "moves": {
+    "g7g8": true,
+    "g7h7": true,
+    "g7f7": true,
+    "g7e7": true,
+    "g7d7": true,
+    "g7c7": true,
+    "g7b7": true,
+    "g7g6": true,
+    "g7g5": true,
+    "g7g4": true,
+    "g7g3": true,
+    "a7b8": true,
+    "a7a8": true,
+    "a7a6": true
+   }
+  },
+  {
+   "name": "avoid_forced_mate_black",
+   "fen": "8/8/6R1/8/8/2K5/k5r1/8 b - - 0 1",
+   "turn": "b",
+   "depth": 3,
+   "expect": "avoid_mate",
+   "losing_moves": [
+    "a2a3"
+   ],
+   "moves": {
+    "g2g6": true,
+    "g2g5": true,
+    "g2g4": true,
+    "g2g3": true,
+    "g2h2": true,
+    "g2f2": true,
+    "g2e2": true,
+    "g2d2": true,
+    "g2c2": true,
+    "g2b2": true,
+    "g2g1": true,
+    "a2a3": true,
+    "a2b1": true,
+    "a2a1": true
+   }
+  }
+ ]
+}

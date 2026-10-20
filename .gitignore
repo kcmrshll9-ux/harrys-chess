@@ -1,0 +1,29 @@
+# Local server state and generated files
+*.log
+*.pid
+*.tmp
+*.out
+__pycache__/
+*.py[cod]
+node_modules/
+.DS_Store
+Thumbs.db
+/nul
+/.env
+/.env.*
+/scratch_*.txt
+/AI_FIX_PROGRESS.md
+/REVIEW_*.md
+/Icon Preview.png
+
+# Keep maintained tests; local investigation artifacts stay on this computer.
+/qa/*
+!/qa/run-tests.cjs
+!/qa/real_input_capture_regression_20261020.cjs
+!/qa/render_geometry_regression_20261020.cjs
+!/qa/gameplay_lifecycle_regression.cjs
+!/qa/gameplay_ai_regression.cjs
+!/qa/ai_ui_slice_regression.cjs
+!/qa/move_record_regression.cjs
+!/qa/resize_regression.cjs
+!/qa/gameplay_fixtures.json

@@ -1,0 +1,13 @@
+{
+  "name": "Harry's Chess",
+  "short_name": "Harry's Chess",
+  "start_url": "/index.html",
+  "scope": "/",
+  "display": "standalone",
+  "theme_color": "#1b140f",
+  "background_color": "#1b140f",
+  "icons": [
+    { "src": "icon.svg", "type": "image/svg+xml", "sizes": "any" },
+    { "src": "app-icon.png", "type": "image/png", "sizes": "512x512" }
+  ]
+}

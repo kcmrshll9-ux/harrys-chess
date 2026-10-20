@@ -1,0 +1,13 @@
+{
+  "name": "harrys-chess",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Harry's Chess: a browser chess game with a computer opponent and Windows desktop launcher.",
+  "scripts": {
+    "start": "python serve.py",
+    "test": "node qa/run-tests.cjs"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
