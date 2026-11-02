@@ -7,6 +7,7 @@ const suites = [
   'real_input_capture_regression_20261020.cjs',
   'render_geometry_regression_20261020.cjs',
   'gameplay_lifecycle_regression.cjs',
+  'terminal_restart_regression.cjs',
   'gameplay_ai_regression.cjs',
   'ai_ui_slice_regression.cjs',
   'move_record_regression.cjs',
