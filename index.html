@@ -140,8 +140,8 @@
 // AI: minimax + alpha-beta, iterative deepening, PST evaluation (mate scores use ply distance).
 // Difficulty: Easy depth 2, Medium depth 3 (default), Expert depth 5.
 // Touch controls: drag = press-and-release on target; click = press+release on piece, then click target;
-// tap = tap piece, then tap target. Touching a piece with legal moves locks you to it until you move
-// it or cancel the interaction; an invalid/canceled interaction never leaves you locked.
+// tap = tap piece, then tap target. Selecting a different own piece replaces the selection —
+// this online game does not enforce FIDE touch-move (touchLocked() is intentionally false).
 // Keyboard: window.__game.press(from,to) mirrors the same contract.
 // QA hooks: window.__game.status(), newGame(), forceMove(san), undo(), setDifficulty(0|1|2), press(from,to).
 
@@ -506,7 +506,7 @@ let touched=null; // retained for status compatibility; online selection does no
 let pendingPromotion=null, boardPress=null;
 let anim=null; // in-flight slide {moves:[{from,to,piece,capSq,capPiece,delay,dur}],t0,dur} so turns are visible, not teleports
 let aiTimer=null, aiCancel=false; // pending setTimeout(aiTurn) handle; cancel flag for undo/new game
-const DEFAULT_DIFF=1; // single default for boot, no-arg newGame, and the result panel's Play Again
+const DEFAULT_DIFF=1; // default for boot and no-arg newGame (Play Again instead remembers the current difficulty)
 let captured={w:[],b:[]}, snapStack=[];
 let lastW=-1,lastH=-1;
 const GLYPH={p:'♟',n:'♞',b:'♝',r:'♜',q:'♛',k:'♚'};
@@ -1158,10 +1158,11 @@ function endGame(result){
   p.textContent=(lmt?('Last move: '+FILES[lmt.from&7]+RANKS[lmt.from>>3]+' → '+FILES[lmt.to&7]+RANKS[lmt.to>>3]+(result==='lose'?" (Harry's mating move)":result==='win'?" (your mating move)":"")):''); ov.appendChild(p);
   explainEnd(result).forEach(txt=>{const ex=document.createElement('p');ex.className='why';ex.textContent=txt;ov.appendChild(ex);});
   const b=document.createElement('button'); b.className='bigbtn'; b.textContent='Play Again'; ov.appendChild(b);
+  // (Play Again remembers the current difficulty, matching the New Game button; the overlay's own difficulty buttons override it explicitly.)
   const dbs=document.createElement('div'); dbs.className='diffbtns';
   DIFFS.forEach((d,i)=>{const btn=document.createElement('button');btn.textContent=d.name;btn.dataset.diff=String(i);dbs.appendChild(btn);});
   ov.appendChild(dbs);
-  b.addEventListener('click',()=>newGame()); // Play Again: DEFAULT_DIFF, same default as boot and no-arg newGame
+  b.addEventListener('click',()=>newGame(difficulty)); // Play Again keeps the difficulty the game was played at (restores the reviewed-4 behavior); the overlay difficulty buttons set an explicit level
   dbs.querySelectorAll('button').forEach(btn=>btn.addEventListener('click',()=>newGame(Number(btn.dataset.diff))));
   boardwrap.appendChild(ov);
   refreshFooter();
